@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattleBase", "CattleBase\CattleBase.csproj", "{03E4449A-E19E-4B87-8971-FBF1696E33BF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03E4449A-E19E-4B87-8971-FBF1696E33BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03E4449A-E19E-4B87-8971-FBF1696E33BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03E4449A-E19E-4B87-8971-FBF1696E33BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03E4449A-E19E-4B87-8971-FBF1696E33BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F01F3E05-881D-4A07-BBA3-79B1E58E107C}
+	EndGlobalSection
+EndGlobal
