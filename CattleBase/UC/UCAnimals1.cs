@@ -19,7 +19,7 @@ namespace CattleBase.UC
         private BindingSource bSource = new BindingSource();
         private DataSet ds = new DataSet();
         private DataTable table = new DataTable();
-        //string id_selected_rows = "0";
+        string id_selected_rows = "0";
         public UCAnimals1()
         {
             InitializeComponent();
@@ -38,6 +38,7 @@ namespace CattleBase.UC
 
         private void UCAnimals1_Load(object sender, EventArgs e)
         {
+            GetListUsers();
 
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].Visible = true;
@@ -45,14 +46,12 @@ namespace CattleBase.UC
             dataGridView1.Columns[3].Visible = true;
             dataGridView1.Columns[4].Visible = true;
             dataGridView1.Columns[5].Visible = true;
-            dataGridView1.Columns[6].Visible = true;
 
             dataGridView1.Columns[1].ReadOnly = true;
             dataGridView1.Columns[2].ReadOnly = true;
             dataGridView1.Columns[3].ReadOnly = true;
             dataGridView1.Columns[4].ReadOnly = true;
             dataGridView1.Columns[5].ReadOnly = true;
-            dataGridView1.Columns[6].ReadOnly = true;
 
             dataGridView1.RowHeadersVisible = false;
 
@@ -63,16 +62,38 @@ namespace CattleBase.UC
             dataGridView1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridView1.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             dataGridView1.Columns[1].HeaderText = "Порядковый номер";
             dataGridView1.Columns[2].HeaderText = "Функция";
             dataGridView1.Columns[3].HeaderText = "Пол";
             dataGridView1.Columns[4].HeaderText = "Состояние";
             dataGridView1.Columns[5].HeaderText = "Возраст";
-            dataGridView1.Columns[6].HeaderText = "Номер стада";
 
             
+        }
+        
+        public void GetSelectedIDString()
+        {
+            string index_selected_rows;
+            index_selected_rows = dataGridView1.SelectedCells[0].RowIndex.ToString();
+            id_selected_rows = dataGridView1.Rows[Convert.ToInt32(index_selected_rows)].Cells[0].Value.ToString();
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
+            dataGridView1.CurrentRow.Selected = true;
+            GetSelectedIDString();
+        }
+
+        private void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (!e.RowIndex.Equals(-1) && !e.ColumnIndex.Equals(-1) && e.Button.Equals(MouseButtons.Right))
+            {
+                dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
+                dataGridView1.CurrentCell.Selected = true;
+                GetSelectedIDString();
+            }
         }
     }
 }
