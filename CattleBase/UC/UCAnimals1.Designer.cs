@@ -48,6 +48,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "UCAnimals1";
             this.Size = new System.Drawing.Size(640, 426);
+            this.Load += new System.EventHandler(this.UCAnimals1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

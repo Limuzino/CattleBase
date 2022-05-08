@@ -30,6 +30,7 @@ namespace CattleBase
             {
                 this.Close();
             }
+            label1.Text = "Здравствуйте " + Auth.auth_fio + "!";
         }
 
         private void menubutton_Click(object sender, EventArgs e)
