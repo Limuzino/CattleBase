@@ -24,7 +24,6 @@ namespace CattleBase.UC
         {
             InitializeComponent();
         }
-
         public void GetListUsers()
         {
             string sql = "SELECT * FROM animal;";

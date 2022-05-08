@@ -35,7 +35,31 @@ namespace CattleBase.UC
             conn.Close();
         }
 
-        private void UCAnimals1_Load(object sender, EventArgs e)
+        public void GetSelectedIDString()
+        {
+            string index_selected_rows;
+            index_selected_rows = dataGridView1.SelectedCells[0].RowIndex.ToString();
+            id_selected_rows = dataGridView1.Rows[Convert.ToInt32(index_selected_rows)].Cells[0].Value.ToString();
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
+            dataGridView1.CurrentRow.Selected = true;
+            GetSelectedIDString();
+        }
+
+        private void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (!e.RowIndex.Equals(-1) && !e.ColumnIndex.Equals(-1) && e.Button.Equals(MouseButtons.Right))
+            {
+                dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
+                dataGridView1.CurrentCell.Selected = true;
+                GetSelectedIDString();
+            }
+        }
+
+        private void UCDoctors1_Load(object sender, EventArgs e)
         {
             GetListUsers();
 
@@ -63,32 +87,6 @@ namespace CattleBase.UC
             dataGridView1.Columns[2].HeaderText = "Поликлиника";
             dataGridView1.Columns[3].HeaderText = "Номер телефона";
             dataGridView1.Columns[4].HeaderText = "Почта";
-
-
-        }
-
-        public void GetSelectedIDString()
-        {
-            string index_selected_rows;
-            index_selected_rows = dataGridView1.SelectedCells[0].RowIndex.ToString();
-            id_selected_rows = dataGridView1.Rows[Convert.ToInt32(index_selected_rows)].Cells[0].Value.ToString();
-        }
-
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
-            dataGridView1.CurrentRow.Selected = true;
-            GetSelectedIDString();
-        }
-
-        private void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (!e.RowIndex.Equals(-1) && !e.ColumnIndex.Equals(-1) && e.Button.Equals(MouseButtons.Right))
-            {
-                dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
-                dataGridView1.CurrentCell.Selected = true;
-                GetSelectedIDString();
-            }
         }
     }
 }

@@ -40,6 +40,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(640, 426);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            this.dataGridView1.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDown);
             // 
             // UCDoctors1
             // 
@@ -48,6 +50,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "UCDoctors1";
             this.Size = new System.Drawing.Size(640, 426);
+            this.Load += new System.EventHandler(this.UCDoctors1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
