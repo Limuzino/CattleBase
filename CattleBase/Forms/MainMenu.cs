@@ -19,7 +19,17 @@ namespace CattleBase
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Forms.LoginForm loginForm = new Forms.LoginForm();
+            loginForm.ShowDialog();
+            if (Auth.auth)
+            {
+                this.Show();;
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         private void menubutton_Click(object sender, EventArgs e)

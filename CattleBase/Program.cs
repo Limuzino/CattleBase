@@ -19,4 +19,12 @@ namespace CattleBase
             Application.Run(new MainMenu());
         }
     }
+
+    static class Auth
+    {
+        public static bool auth = false;
+        public static string auth_login = null;
+        public static string auth_fio = null;
+    }
+
 }
