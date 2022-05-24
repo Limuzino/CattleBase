@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.menubutton = new System.Windows.Forms.Button();
             this.animalbutton = new System.Windows.Forms.Button();
             this.doctorbutton = new System.Windows.Forms.Button();
@@ -37,8 +38,8 @@
             this.deletebutton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ucAnimals11 = new CattleBase.UC.UCAnimals1();
             this.ucDoctors11 = new CattleBase.UC.UCDoctors1();
+            this.ucAnimals11 = new CattleBase.UC.UCAnimals1();
             this.SuspendLayout();
             // 
             // menubutton
@@ -126,19 +127,12 @@
             // 
             // label2
             // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(149, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(639, 290);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Заполни текстом с флешки, там норм текст\r\n";
-            // 
-            // ucAnimals11
-            // 
-            this.ucAnimals11.Location = new System.Drawing.Point(148, 12);
-            this.ucAnimals11.Name = "ucAnimals11";
-            this.ucAnimals11.Size = new System.Drawing.Size(640, 426);
-            this.ucAnimals11.TabIndex = 10;
-            this.ucAnimals11.Visible = false;
+            this.label2.Text = resources.GetString("label2.Text");
             // 
             // ucDoctors11
             // 
@@ -147,6 +141,14 @@
             this.ucDoctors11.Size = new System.Drawing.Size(640, 426);
             this.ucDoctors11.TabIndex = 11;
             this.ucDoctors11.Visible = false;
+            // 
+            // ucAnimals11
+            // 
+            this.ucAnimals11.Location = new System.Drawing.Point(148, 12);
+            this.ucAnimals11.Name = "ucAnimals11";
+            this.ucAnimals11.Size = new System.Drawing.Size(640, 426);
+            this.ucAnimals11.TabIndex = 10;
+            this.ucAnimals11.Visible = false;
             // 
             // MainMenu
             // 
