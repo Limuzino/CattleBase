@@ -49,6 +49,8 @@ namespace CattleBase
             deletebutton.Visible = true;
             ucAnimals11.Visible = true;
             ucDoctors11.Visible = false;
+            UC.UCAnimals1 uCAnimals1 = new UC.UCAnimals1();
+            uCAnimals1.reload_list();
         }
 
         private void doctorbutton_Click(object sender, EventArgs e)
@@ -63,6 +65,12 @@ namespace CattleBase
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void addbutton_Click(object sender, EventArgs e)
+        {
+            Forms.Redact_Form redact_Form = new Forms.Redact_Form();
+            redact_Form.ShowDialog();
         }
     }
 }

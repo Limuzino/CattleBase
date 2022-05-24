@@ -90,6 +90,7 @@
             this.addbutton.Text = "Добавить запись";
             this.addbutton.UseVisualStyleBackColor = true;
             this.addbutton.Visible = false;
+            this.addbutton.Click += new System.EventHandler(this.addbutton_Click);
             // 
             // changebutton
             // 

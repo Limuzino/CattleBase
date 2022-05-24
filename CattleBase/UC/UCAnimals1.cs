@@ -26,7 +26,9 @@ namespace CattleBase.UC
         }
         public void GetListUsers()
         {
-            string sql = "SELECT * FROM animal;";
+            string sql = $"SELECT animal.id, animal.animal_uniq_number, animal_type.type, animal_gender.gender, animal_status.status " +
+            "FROM animal_status INNER JOIN(animal_gender INNER JOIN(animal_type INNER JOIN animal ON animal_type.id = animal.animal_type_id) " +
+            "ON animal_gender.id = animal.animal_gender_id) ON animal_status.id = animal.animal_status_id;";
             conn.Open();
             MyDA.SelectCommand = new MySqlCommand(sql, conn);
             MyDA.Fill(table);
@@ -44,13 +46,11 @@ namespace CattleBase.UC
             dataGridView1.Columns[2].Visible = true;
             dataGridView1.Columns[3].Visible = true;
             dataGridView1.Columns[4].Visible = true;
-            dataGridView1.Columns[5].Visible = true;
 
             dataGridView1.Columns[1].ReadOnly = true;
             dataGridView1.Columns[2].ReadOnly = true;
             dataGridView1.Columns[3].ReadOnly = true;
             dataGridView1.Columns[4].ReadOnly = true;
-            dataGridView1.Columns[5].ReadOnly = true;
 
             dataGridView1.RowHeadersVisible = false;
 
@@ -60,17 +60,22 @@ namespace CattleBase.UC
             dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridView1.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             dataGridView1.Columns[1].HeaderText = "Порядковый номер";
             dataGridView1.Columns[2].HeaderText = "Функция";
             dataGridView1.Columns[3].HeaderText = "Пол";
             dataGridView1.Columns[4].HeaderText = "Состояние";
-            dataGridView1.Columns[5].HeaderText = "Возраст";
 
             
         }
-        
+        public void reload_list()
+        {
+            dataGridView1.Columns.Clear();
+            dataGridView1.Rows.Clear();
+            table.Clear();
+        }
+
+
         public void GetSelectedIDString()
         {
             string index_selected_rows;
