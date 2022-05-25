@@ -30,9 +30,9 @@ namespace CattleBase.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
             UC.UCAnimals1 uCAnimals1 = new UC.UCAnimals1();
             uCAnimals1.reload_list();
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)

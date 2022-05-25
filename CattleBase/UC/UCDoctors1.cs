@@ -90,9 +90,8 @@ namespace CattleBase.UC
         }
         public void reload_list()
         {
-            dataGridView1.Columns.Clear();
-            dataGridView1.Rows.Clear();
             table.Clear();
+            GetListUsers();
         }
     }
 }

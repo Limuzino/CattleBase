@@ -47,8 +47,10 @@ namespace CattleBase
             deletebutton.Visible = false;
             ucAnimals11.Visible = false;
             ucDoctors11.Visible = false;
-            int active_animal = 0;
-            int active_doctor = 0;
+            active_animal = 0;
+            active_doctor = 0;
+            uCAnimals1.reload_list();
+            uCDoctors1.reload_list();
         }
 
         private void animalbutton_Click(object sender, EventArgs e)
@@ -59,8 +61,8 @@ namespace CattleBase
             ucAnimals11.Visible = true;
             ucDoctors11.Visible = false;
             uCAnimals1.reload_list();
-            int active_animal = 1;
-            int active_doctor = 0;
+            active_animal = 1;
+            active_doctor = 0;
         }
 
         private void doctorbutton_Click(object sender, EventArgs e)
@@ -71,8 +73,8 @@ namespace CattleBase
             ucAnimals11.Visible = false;
             ucDoctors11.Visible = true;
             uCDoctors1.reload_list();
-            int active_animal = 0;
-            int active_doctor = 1;
+            active_animal = 0;
+            active_doctor = 1;
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -80,10 +82,15 @@ namespace CattleBase
             this.Close();
         }
 
-        private void addbutton_Click(object sender, EventArgs e)
+        private async void addbutton_Click(object sender, EventArgs e)
         {
             Forms.Redact_Form redact_Form = new Forms.Redact_Form();
             redact_Form.ShowDialog();
+            while (redact_Form.Enabled)
+            {
+                uCAnimals1.reload_list();
+                await Task.Delay(1000);
+            }
         }
 
         private void deletebutton_Click(object sender, EventArgs e)
@@ -91,12 +98,13 @@ namespace CattleBase
             if (active_animal == 1)
             {
                 conn.Open();
-                string query = $"DELETE FROM animal WHERE (id={ucAnimals11.id_selected_rows});";
+                string query = $"DELETE FROM animal WHERE (id={uCAnimals1.id_selected_rows});";
                 try
                 {
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Удаление успешо!");
+                    uCAnimals1.reload_list();
                 }
                 catch (Exception ex)
                 {
@@ -105,18 +113,20 @@ namespace CattleBase
                 finally
                 {
                     conn.Close();
+                    uCAnimals1.reload_list();
                 }
 
             }
             if (active_doctor == 1)
             {
                 conn.Open();
-                string query = $"DELETE FROM doctor WHERE (id={uCDoctors1.id_selected_rows});";
+                string query1 = $"DELETE FROM doctor WHERE (id={uCDoctors1.id_selected_rows});";
                 try
                 {
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlCommand cmd = new MySqlCommand(query1, conn);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Удаление успешо!");
+                    uCDoctors1.reload_list();
                 }
                 catch (Exception ex)
                 {
