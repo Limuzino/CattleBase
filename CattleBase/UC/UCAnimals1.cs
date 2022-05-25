@@ -19,7 +19,7 @@ namespace CattleBase.UC
         private BindingSource bSource = new BindingSource();
         private DataSet ds = new DataSet();
         private DataTable table = new DataTable();
-        string id_selected_rows = "0";
+        public string id_selected_rows = "0";
         public UCAnimals1()
         {
             InitializeComponent();

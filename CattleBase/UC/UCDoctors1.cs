@@ -19,7 +19,7 @@ namespace CattleBase.UC
         private BindingSource bSource = new BindingSource();
         private DataSet ds = new DataSet();
         private DataTable table = new DataTable();
-        string id_selected_rows = "0";
+        public string id_selected_rows = "0";
         public UCDoctors1()
         {
             InitializeComponent();
@@ -87,6 +87,12 @@ namespace CattleBase.UC
             dataGridView1.Columns[2].HeaderText = "Поликлиника";
             dataGridView1.Columns[3].HeaderText = "Номер телефона";
             dataGridView1.Columns[4].HeaderText = "Почта";
+        }
+        public void reload_list()
+        {
+            dataGridView1.Columns.Clear();
+            dataGridView1.Rows.Clear();
+            table.Clear();
         }
     }
 }

@@ -112,6 +112,7 @@
             this.deletebutton.Text = "Удалить запись";
             this.deletebutton.UseVisualStyleBackColor = true;
             this.deletebutton.Visible = false;
+            this.deletebutton.Click += new System.EventHandler(this.deletebutton_Click);
             // 
             // label1
             // 
