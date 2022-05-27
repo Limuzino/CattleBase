@@ -17,9 +17,8 @@ namespace CattleBase.UC
         MySqlConnection conn = new MySqlConnection(connStr);
         private MySqlDataAdapter MyDA = new MySqlDataAdapter();
         private BindingSource bSource = new BindingSource();
-        private DataSet ds = new DataSet();
         private DataTable table = new DataTable();
-        public string id_selected_rows = "0";
+        public string id_selected_rowsA = "0";
         public UCAnimals1()
         {
             InitializeComponent();
@@ -70,8 +69,8 @@ namespace CattleBase.UC
         }
         public void reload_list()
         {
-            table.Clear();
-            GetListUsers();
+            this.table.Clear();
+            this.GetListUsers();
         }
 
 
@@ -79,7 +78,7 @@ namespace CattleBase.UC
         {
             string index_selected_rows;
             index_selected_rows = dataGridView1.SelectedCells[0].RowIndex.ToString();
-            id_selected_rows = dataGridView1.Rows[Convert.ToInt32(index_selected_rows)].Cells[0].Value.ToString();
+            id_selected_rowsA = dataGridView1.Rows[Convert.ToInt32(index_selected_rows)].Cells[0].Value.ToString();
         }
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

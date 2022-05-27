@@ -17,9 +17,8 @@ namespace CattleBase.UC
         MySqlConnection conn = new MySqlConnection(connStr);
         private MySqlDataAdapter MyDA = new MySqlDataAdapter();
         private BindingSource bSource = new BindingSource();
-        private DataSet ds = new DataSet();
         private DataTable table = new DataTable();
-        public string id_selected_rows = "0";
+        public string id_selected_rowsD = "0";
         public UCDoctors1()
         {
             InitializeComponent();
@@ -33,30 +32,6 @@ namespace CattleBase.UC
             bSource.DataSource = table;
             dataGridView1.DataSource = bSource;
             conn.Close();
-        }
-
-        public void GetSelectedIDString()
-        {
-            string index_selected_rows;
-            index_selected_rows = dataGridView1.SelectedCells[0].RowIndex.ToString();
-            id_selected_rows = dataGridView1.Rows[Convert.ToInt32(index_selected_rows)].Cells[0].Value.ToString();
-        }
-
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
-            dataGridView1.CurrentRow.Selected = true;
-            GetSelectedIDString();
-        }
-
-        private void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (!e.RowIndex.Equals(-1) && !e.ColumnIndex.Equals(-1) && e.Button.Equals(MouseButtons.Right))
-            {
-                dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
-                dataGridView1.CurrentCell.Selected = true;
-                GetSelectedIDString();
-            }
         }
 
         private void UCDoctors1_Load(object sender, EventArgs e)
@@ -90,8 +65,8 @@ namespace CattleBase.UC
         }
         public void reload_list()
         {
-            table.Clear();
-            GetListUsers();
+            this.table.Clear();
+            this.GetListUsers();
         }
     }
 }
