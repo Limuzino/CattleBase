@@ -39,6 +39,7 @@ namespace CattleBase.UC
         private void UCAnimals1_Load(object sender, EventArgs e)
         {
             GetListUsers();
+            Updating();
 
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].Visible = true;
@@ -66,6 +67,14 @@ namespace CattleBase.UC
             dataGridView1.Columns[4].HeaderText = "Состояние";
 
             
+        }
+        private async void Updating()
+        {
+            while (true)
+            {
+                await Task.Delay(3000);
+                reload_list();
+            }
         }
         public void reload_list()
         {

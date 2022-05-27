@@ -29,7 +29,7 @@ namespace CattleBase
             loginForm.ShowDialog();
             if (Auth.auth)
             {
-                this.Show();;
+                this.Show(); ;
             }
             else
             {
@@ -79,7 +79,7 @@ namespace CattleBase
         private void deletebutton_Click(object sender, EventArgs e)
         {
             conn.Open();
-            string query = $"DELETE FROM animal WHERE id='" + uCAnimals1.id_selected_rowsA + "'";
+            string query = $"DELETE FROM animal WHERE id='" + ucAnimals11.id_selected_rowsA + "'";
             try
             {
                 MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -93,7 +93,7 @@ namespace CattleBase
             finally
             {
                 conn.Close();
-                uCAnimals1.reload_list();
+                ucAnimals11.reload_list();
             }
         }
     }
