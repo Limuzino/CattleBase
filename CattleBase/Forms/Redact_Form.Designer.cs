@@ -155,7 +155,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Name = "Redact_Form";
-            this.Text = "Redact_Form";
+            this.Text = "Добавление животного";
             this.ResumeLayout(false);
             this.PerformLayout();
 
